@@ -1,0 +1,16 @@
+{% extends "post/post_base.html" %}
+{% block prepost %}
+
+  <p style="text-align:left; font-weight:bolder; margin-top:1em;margin-bottom:1em; color:white;font-size:x-large">ALL POSTS</p>
+  <hr>
+{% endblock %}
+
+{% block post_content %}
+<div class="container" style = "margin-top:1em;">
+
+  {% for post in post_list %}
+    {% include "post/_individual_post.html" %}
+  {% endfor %}
+</div>
+
+{%endblock%}

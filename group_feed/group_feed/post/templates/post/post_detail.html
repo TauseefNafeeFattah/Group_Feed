@@ -1,0 +1,29 @@
+{% extends "post/post_base.html" %}
+{% block post_content%}
+<div class="col-mid-8" style = "background-color:white;margin-top:1em;border:1px white solid;border-radius:15px;">
+  <div class="post_detail_entire" style = "margin-bottom:10px;">
+  {% include "post/_post.html" %}
+
+  <!-- TODO: the ability to edit post and fix the comment form UI, edit,group,homepage-->
+  </div>
+  <hr style = "clear:both;margin-top:5%">
+  <h3 style = "margin-left:2em;margin-top:1em;">Comments:</h3>
+  <div class="container" style = "margin:2em;">
+    {% if post.comments.all %}
+      {% for comment in post.comments.all %}
+        <div class="comment" style ="border:solid grey 1px;border-radius:1em; padding:1.5%;margin-bottom:10px;margin-right:5em;">
+        <p><strong>{{comment.user.username}}</strong></p>
+        <p style="font-size:large">{{comment.text|safe|linebreaksbr}}</p>
+        <p style="font-size:small">Date:<time>{{comment.created_at}}</time></p>
+        </div>
+        {% if comment.user == request.user%}
+          <a class="btn btn-danger" href="{% url 'post:remove_comment' pk=comment.pk %}" style="margin-bottom:1em;margin-left:1%;">Remove</a>
+        {%endif%}
+      {%endfor%}
+    {% else %}
+      <p>No comments posted </p>
+    {% endif %}
+
+  </div>
+</div>
+{% endblock %}

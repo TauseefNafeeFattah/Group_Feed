@@ -1,0 +1,32 @@
+{% extends "group/group_base.html"%}
+{% block pregroup %}
+<div class="head-section" style = "background-color:#24968dd6;border-bottom:2px solid grey;">
+  <h2 style = "text-align:center;font-size:xx-large;font-weight:bolder;margin-bottom:1em;margin-top:1em;">Your Groups</h2>
+  {% if user.is_authenticated %}
+    <a href="{% url 'group:create' %}" class = "btn btn-warning">Create New Group</a>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block group_content %}
+  <div class="col-mid-8">
+    <!-- one card -->
+    <div class="list-group">
+      {% for group in object_list %}
+      {% if user in group.members.all %}
+      <div class="card w-100" style="margin-bottom:1em;padding:1.5em; box-shadow:0em .5em 1em">
+        <div class="row">
+          <div class="card-body">
+            <h3 class = "card-title">{{ group.name }}</h3>
+            <p class= "card-text">{{ group.description_html|safe|truncatewords_html:15 }}</p>
+            <p>Member: {{group.members.count}}  Post: {{group.posts.count}}</p>
+            <a href="{% url 'group:single' slug=group.slug %}" class = "btn btn-primary" style = "float:left;padding-right:2em;padding-left:2em;padding-top:1em;padding-bottom:1em;text-align:center;"> Go to Group</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

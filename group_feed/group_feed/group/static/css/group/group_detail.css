@@ -1,0 +1,45 @@
+.head-section{
+    background-color:#24968dd6;
+    border-bottom:2px solid grey;
+    margin:1em;
+    padding:2.5em;
+}
+.group-name{
+  text-align: center;
+  padding: 3em;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-bottom: 10px;
+  display:inline;
+  min-width: 70%;
+  color:white
+}
+.group-button{
+  margin-left:2%;
+}
+.sidebar{
+  border: solid 1px grey;
+  padding:1em;
+  margin-bottom:2%;
+  margin-left: 1em;
+  background-color: #24968dd6;
+}
+.sidebar-top{
+  text-align: center;
+  color:white;
+  font-weight: bold;
+}
+.group-description{
+  color:black;
+  font-size: 25px;
+}
+.create-post-group{
+  border: solid 1px;
+  background-color: #000080;
+  color:white;
+  margin-top:10px;
+  justify-content: center;
+  text-align:center;
+  width: 100%;
+  text-decoration: none;
+}

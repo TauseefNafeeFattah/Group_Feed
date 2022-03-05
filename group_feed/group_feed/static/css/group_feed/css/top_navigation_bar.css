@@ -1,0 +1,12 @@
+.navbar{
+  background-color :white;
+  padding: 2em;
+
+  border-bottom: 1px solid #9EF4F9!important;/* change this if we want this gives a line to seperate navbar with
+  everything else*/
+}
+.top_nav_item{
+  font-weight: bolder!important;
+  color:black!important;
+  font-size: 20px!important;
+}

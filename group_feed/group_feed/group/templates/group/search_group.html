@@ -1,0 +1,30 @@
+{% extends "group/group_base.html"%}
+  {%block pregroup%}
+  <div class="container" style = "margin: 2em;padding: 2em;">
+    {% if searched %}
+    <h3 style="color:white;">"{{searched_groups.count}}" results found for {{searched}}</h3>
+    {% endif %}
+    <hr>
+  {% endblock %}
+  {% block group_content %}
+    <div class="col-mid-8">
+      <!-- one card -->
+      <div class="list-group">
+        {% for group in searched_groups %}
+
+        <div class="card w-100" style="margin-bottom:1em;padding:1.5em; box-shadow:0em .5em 1em">
+          <div class="row">
+            <div class="card-body">
+              <h3 class = "card-title">{{ group.name }}</h3>
+              <p class= "card-text">{{ group.description_html|safe|truncatewords_html:15 }}</p>
+              <p>Member: {{group.members.count}}  Post: {{group.posts.count}}</p>
+              <a href="{% url 'group:single' slug=group.slug %}" class = "btn btn-primary" style = "float:left;padding-right:2em;padding-left:2em;padding-top:1em;padding-bottom:1em;text-align:center;"> Go to Group</a>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+
+  {% endblock %}

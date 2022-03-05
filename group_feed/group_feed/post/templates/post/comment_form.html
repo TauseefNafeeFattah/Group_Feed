@@ -1,0 +1,13 @@
+
+<!-- TODO: fix comment UI and search bar-->
+{% extends "post/post_base.html" %}
+{% load bootstrap5 %}
+
+{% block post_content %}
+<h4 style = "margin-top:20px;color: white;text-align: center;">Create New comment</h4>
+<form  method="post">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  <input type="submit" value="Post Comment" class = "btn btn-primary btn-large">
+</form>
+{% endblock %}
